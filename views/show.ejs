@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= product.name %></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/show.css">
+</head>
+
+<body>
+    
+    <div class="details">
+        <div class="first">
+            <div class="bigimg">
+                <img class="imgRes" src="<%=product.image.img1%>" alt="Loading...">
+            </div>
+            <div class="smimgs">
+                <div class="logoBox"><img src="<%=product.image.img1%>" alt="Loading..." class="smlogo"></div>
+                <div class="logoBox"><img src="<%=product.image.img2%>" alt="Loading..." class="smlogo"></div>
+                <div class="logoBox"><img src="<%=product.image.img3%>" alt="Loading..." class="smlogo"></div>
+                <div class="logoBox"><img src="<%=product.image.img4%>" alt="Loading..." class="smlogo"></div>
+                <div class="logoBox"><img src="<%=product.image.img5%>" alt="Loading..." class="smlogo"></div>
+            </div>
+        </div>
+        <div class="second">
+            <h2><%= product.name %></h2>
+            <div class="price">
+                <h1>₹<%= product.price%></h1> <i class="far fa-heart"></i>
+            </div>
+            <p class="sec_para">
+                <%= product.desc1 %>
+            </p>
+            <p class="sec_para">
+                <%= product.desc2 %>
+            </p>
+
+            
+            <% if(login_count!=0){  %>
+                
+                <% let check_cart = user && user.cartlist && user.cartlist.includes(product.id); %>
+                <% let text = check_cart === true? "Added" : "Add"; %>
+                <div id="btn">
+                    <a href="/product/<%= product.id %>/add2cart" style="<%= check_cart ? 'background-color: green;' : '' %>" class="btn"><%= text %> To Cart</a>
+                    <a href="/cart" class="btn">Go To Cart</a>
+
+                </div>
+
+
+                <div id="wish">
+                    <% let check_wish = user && user.wishlist && user.wishlist.includes(product.id); %>
+                    <% let heartCls = "far fa-heart" %>
+                    <% if(check_wish===true){ %>
+                        <% heartCls = "fas fa-heart"; %>
+                    <% } %>
+                    <a href="/product/<%= product.id %>/add2wish"><i id="heart" class="far fa-heart"></i></a><span style="margin-right: 30px; margin-left: 4px;">Wishlist</span>
+                    <span class="material-symbols-outlined">compare</span><span style=" margin-left: 4px;">Compare</span>
+                </div>
+            <% } else{ %>
+                <div id="btn">
+                    <a href="" class="btn prompt">Add To Cart</a>
+                    <a href="/cart" class="btn">Go To Cart</a>
+                </div>
+    
+    
+                <div id="wish">
+                    <a href="" class="prompt"><i id='heart' class="far fa-heart"></i></a><span style="margin-right: 30px; margin-left: 4px;">Wishlist</span>
+                    <span class="material-symbols-outlined">compare</span><span style=" margin-left: 4px;">Compare</span>
+                </div>
+            <% } %>
+            
+            <div class="about">
+                <p>SKU: WVN-13</p>
+                <p>Categories: Audio & Video Game, Headphone, Phone Accessories, Smart TV, Technologies, Virtual Reality Glasses, Xbox(Console)</p>
+                <p>Tags: Tag-02, Tag-08</p>
+            </div>
+        </div>
+    </div>
+    <div class="share">
+        <div class="box">
+            <i class="fab fa-facebook">&nbsp;&nbsp;</i> Share On Facebook
+        </div>
+        <div class="box">
+            <i class="fab fa-twitter">&nbsp;&nbsp;</i>Tweet This Product
+        </div>
+        <div class="box">
+            <i class="fab fa-pinterest">&nbsp;&nbsp;</i>Pin This Product
+        </div>
+        <div class="box">
+            <i class="fas fa-envelope">&nbsp;&nbsp;</i>Mail This Product
+        </div>
+    </div>
+
+
+    <script src="../src/show.js"></script>
+</body>
+
+</html>

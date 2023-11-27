@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WishList</title>
+    <link rel="stylesheet" href="wishlist.css">
+    <script src="https://kit.fontawesome.com/b8a915db41.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+    <div class="image">
+        <div id="a1">WishList<i class="fa-sharp fa-solid fa-heart"></i></div>
+    </div>
+    <div class="main">
+        
+        <table>
+            <% if (user && user.wishlist && user.wishlist.length!=0) { %>
+                <% user.wishlist.forEach(id => { %>
+                    <% const item = products.find((p) => p.id === id); %>
+                    <% let check_cart = user.cartlist.includes(item.id); %>
+                    <tr>
+                        <% let text = check_cart === true? "Added" : "Add"; %>
+                        <th><a href="/product/<%=item.id%>"><img src="<%=item.image.img1%>" id="img" alt="Loading..."></a></th>
+                        <th><%= item.name %></th>
+                        
+                        <td class="flexing" ><b>$ <%= item.price %></b></td>
+                        <td class="flexing" ><a href="/wish/<%=item.id%>/add2cart" style="<%= check_cart ? 'background-color: green;' : '' %>" id="btn"><%= text %> To Cart</a></td>
+                        <td class="flexing" id="trash"><a href="/wish/<%=item.id%>"><i class="fa-solid fa-trash"></i></a></td>
+                    
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <div style="text-align: center; font-size: 1.3rem; margin: 30px 0px;">No items in the wishlist!!</div>
+            <% } %>
+        </table>
+    </div>
+    <%- include('../partials/footer') %>
+</body>
+
+</html>

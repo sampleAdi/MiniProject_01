@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.full {
+    background-image: url('https://images.unsplash.com/photo-1557821552-17105176677c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FydHxlbnwwfHwwfHx8MA%3D%3D');
+
+    display: flex;
+    /* border: 2px solid green; */
+}
+
+.content{
+    margin-left: 30px;
+    width: 60%;
+}
+.bill{
+    width: 40%;
+    margin-right: 10px;
+}
+.bill{
+    margin: 5px;
+    padding: 7px;
+    min-width: 200px;
+    max-width: 700px;
+    border: 2px solid gray;
+}
+.bill h2{
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 2rem;
+    background-color: #dadad9;
+    border: 2px solid gray;
+}
+.subtot,.tot{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.inside{
+    font-size: 1.5rem;
+    color:rgb(116, 115, 115);
+    margin: 30px 0px;
+
+}
+.heading{
+    text-align: center;
+    font-size: 3rem;
+}
+#haveCoupon{
+    color:gray;
+    margin: 6px 15px;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.button{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#btn{
+    padding: 8px 15px;
+    background-color: #6E7051;
+    margin: 18px 0px;
+}
+#btn a{
+    text-decoration: none;
+    color:white;
+    font-size: 1.3rem;
+}
+
+.coupon h2{
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 2rem;
+    background-color: #dadad9;
+    border: 2px solid gray;
+}
+.main{
+    display: flex;
+    flex-wrap: wrap;
+}
+#ff1{
+    font-size: 1.5rem;
+    /* border: 1px dotted pink; */
+    margin: 20px 0px;
+}
+#dd1{
+    background-color: white;
+    padding: 1%;
+    margin: 5%;
+    width: 80%;
+    border: 2px solid gray;
+}
+.bill{
+    background-color: white;
+    margin: 2.4%;
+    width: 50%;
+    height: 300px;
+}
+#in1 input{
+    width: 100%;
+    height: 40px;
+    /* border: 2px solid red; */
+}
+#f3{
+    background-color: black;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    /* border: 2px solid red; */
+
+}
+#f3 a{
+    color: white;
+    text-decoration: none;
+}
+#f3 input{
+    background-color: black;
+    color: white;
+    border: none;
+}

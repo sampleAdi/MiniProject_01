@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.Shop_Category{
+    background-image: url('https://demo-61.woovinapro.com/wp-content/uploads/2022/04/bg-cats.jpg');
+}     
+
+.item1 img{
+display: block;
+margin: auto;
+width: 250px;
+}
+.Shop_Category{
+overflow: hidden;
+}
+
+.footer{
+border-style: solid;
+border-width:70px; 
+border-color: white;
+display: grid;
+grid-template-columns: repeat(auto-fill,minmax(300px,auto));
+grid-auto-rows: minmax(300px,auto);
+column-gap: 30px;
+}
+.social{
+letter-spacing: 2px;
+}
+.mini img{
+    width: 200px;
+    height: 200px;
+}
+
+ .card{
+display: flex;
+background-color: #F1F1EF;
+justify-content: center;
+align-items: center;
+width: 100%;
+height:100px;
+
+}
+.card img{
+    width: 60px;
+    margin-left: 2%;
+}
+ .part3{
+   background-image: url('https://demo-61.woovinapro.com/wp-content/uploads/2022/04/banner3.jpg');
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center;
+}
+.part4{
+    background-image: url('https://demo-61.woovinapro.com/wp-content/uploads/2022/04/banner4.jpg');
+    background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center;
+}
+.line{
+    background-color: black;
+    height: 0.3rem;
+}
+
+
+  .body {
+    margin: 0;
+    min-height:0vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  
+  .box {
+    display: flex;
+    width: 100%;
+  }
+  
+  .box-sm {
+    height: 8px;
+    margin: 0;
+    flex-grow: 1;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .box-sm:hover {
+    flex-grow: 12;
+  }
+
+  .red {
+    background-color: #FF5852;
+  }
+  
+  .orange {
+    background-color: #FF9000;
+  }
+  
+  .yellow {
+    background-color: #FFD300;
+  }
+  
+  .green {
+    background-color: #3DCD49;
+  }
+  
+  .blue {
+    background-color: #0089D7;
+  }
+  
+  .purple {
+    background-color: #9E44C4;
+  }

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <%- include('../partials/nav') %>
+        <p style="font-size: 45px;display: flex;justify-content: center;align-items: center;margin-top: 40px;">Shopping Cart</p>
+        <div class="main">
+            <table>
+                <% let total = 0; %>
+                
+                <% if (user && user.cartlist && user.cartlist.length!=0) { %>
+                    <% user.cartlist.forEach(id => { %>
+                      <% const item = products.find((p) => p.id === id); %>
+                      <tr>
+                        <th><a href="/product/<%= item.id %>"><img src="<%= item.image.img1 %>" id="img" alt="Loading..."></a></th>
+                        <th><%= item.name %></th>
+                        <% total += item.price; %>
+                        <td class="flexing"><b>₹ <%= item.price %></b></td>
+                        <td class="flexing"><a href="/wish/<%= item.id %>/cart2cart"><i class="fa-solid fa-trash"></i></a></td>
+                      </tr>
+                    <% }) %>
+                  <% } else { %>
+                      <div style="text-align: center; font-size: 1.3rem; margin: 30px 0px;">No items in the cart!!</div>
+                  <% } %>
+                  
+            </table>
+            
+        </div>
+        <div class="main2">
+
+            <div class="bill">
+                <h2>Cart Totals</h2>
+                <div class="subtot">
+                    <div class="inside">Subtotal</div>
+                    <div class="inside">₹<%= total %></div>
+                </div>
+                <div class="tot">
+                    <div class="inside" style="<%= total == 0 ? 'display:none;' : '' %>">Shipping Charge</div>
+                    <% let charge = 40; %>
+                    <% if (total >= 500) { %>
+                        <% charge = 0; %>
+                        <div class="inside" style="color:green;">Free</div>
+                    <% }  else { %>
+                        <div class="inside" style="<%= total == 0 ? 'display:none;' : '' %>">₹ <%= charge %></div>
+                    <% } %>
+                </div>
+                <% if(total!=0) total+=charge; %>
+                <div class="tot">
+                    <div class="inside">Total</div>
+                    <div class="inside">₹<%= total %></div>
+                </div>
+                <p id="haveCoupon">Have a coupon?</p>
+                <div class="button">
+                    <button id="btn"><a href="/checkout">Proceed To Checkout</a></button>
+                </div>
+            </div>
+            <div class="coupon">
+                <h2>Apply Coupon</h2>
+                <div class="inside">Enter your coupon code if you have one.</div>
+                <div style="display: flex; flex-wrap: wrap;">
+                    <div ><input id="validate" style="height: 40px; border: 1px solid black; font-size: 16px; margin-right: 5px; margin-top: 8px;" type="text" placeholder=" Coupon Code"></div>
+                    <div><button id="coupon_check" style="letter-spacing: 1px; font-size: 1.1rem; width: 150px;height: 42px; border: 1px solid black; margin-top: 8px; color:white; background-color: #6E7051;">Apply Coupon</button></div>
+                </div>
+                    
+            </div>
+        </div>
+
+        <%- include('../partials/footer') %>
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function () {
+            var checkoutButton = document.getElementById('btn');
+
+            if (checkoutButton) {
+                checkoutButton.addEventListener('click', function () {
+                var totalValue = <%= total %>;
+
+                if (totalValue === 0) {
+                    alert('Your total is 0. Please add items to your cart before proceeding.');
+                    // Prevent the default link behavior
+                    event.preventDefault(); // for modern browsers
+                    return false; // for older browsers
+                }
+                });
+            }
+            });
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="nav.css">
+    <script src="https://kit.fontawesome.com/b8a915db41.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo"><img src="https://i.ibb.co/tsZb9Np/urban-cart-high-resolution-logo-black-transparent.png" alt=""></div>
+        <div class="anc" id="d1" >
+            <li><a href="/products">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </div>
+        <div class="anc" id="d2">
+            <div id="drop-menu" ><a href="">Profile</a>
+                <div class="drop">
+                    <div id="e" style="display: flex;"><i class="fa-regular fa-user"></i>
+                        <% if (login_count !== 0) { %>
+                            <a href="/profile">Profile</a>
+                        <% } else { %>
+                            <div id="prf" style="font-size: 1.4rem;">Profile</div>
+                        <% } %>
+                    </div>
+                    <!-- <div id="e"  style="display: flex; cursor: no-drop;"><i class="fa-solid fa-box"  style="cursor: no-drop;"></i><div href="" style="cursor: no-drop; font-size: 1.4rem;">My Orders</div></div> -->
+                    <div id="e"><i class="fa-regular fa-heart"></i><a href="/wish">My WishList</a></div>
+                    <div id="e"><i class="fa-solid fa-cart-shopping"></i><a href="/cart">My Cart</a></div>
+                </div>
+            </div>
+
+            <div class="heart"><a href="/wish"><i class="fa-regular fa-heart"></i></a>
+                <div id="f1"><%= wish_count %></div>
+            </div>
+            <div class="cart"><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <div id="f2"><%= cart_count %></div>
+            </div>
+            <% if(login_count==0){ %>
+                <div><a href="/login">Login</a></div>
+            <% } else{ %>
+                <form action="/logout" method="post">
+                    <div><button type="submit" style="border: none; background-color: transparent; font-size: 1.5rem; cursor: pointer; color: white;">Logout</button></div>
+                </form>
+            <% } %>
+        </div>
+        <div class="bar"><i class="fa-solid fa-bars"></i></div>
+    </header>
+    <div class="shrink" class=".mn">
+        <li><a href="/products">Home</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="">My Orders</a></li>
+        <li><a href="/wish">My WishList</a></li>
+        <li><a href="/cart">My Cart</a></li>
+        <li><a href="/login">Login</a></li>
+    </div>
+</body>
+<script>
+    let ele = document.querySelector('.bar');
+    ele.onclick = function () {
+        let mn = document.querySelector('.shrink');
+        let icon=document.querySelector('.fa-bars');
+        mn.classList.toggle('mn');
+        icon.classList.toggle('fa-xmark');   
+    }
+    let prf = document.getElementById('prf');
+
+    prf.onclick = function () {
+        alert('Please Login First!!');
+    };
+
+
+</script>
+</html>

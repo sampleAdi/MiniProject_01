@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.details{
+    display: flex;
+    margin: 60px;
+    /* width: 100vw; */
+    /* border: 7px solid blue; */
+}
+.first{
+    width: 50%;
+    /* border:2px solid red; */
+}
+.second{
+    width: 50%;
+    /* border: 2px solid green; */
+    margin: 0px 20px;
+}
+.price{
+    background-color: #dfdfdf;
+    padding:8px;
+    margin: 20px 0px;
+} 
+.sec_para{
+    margin: 20px 0px;
+}
+.btn{
+    color:#dfdfdf;
+    background-color: #333333;
+    padding: 10px 15px;
+    font-weight:bolder;
+    font-size: 1.01rem;
+    margin-left: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: 400ms;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+#btn{
+    display: flex;
+}
+
+.btn a{
+    color:white;
+    text-decoration: none;
+}
+.btn:hover{
+    background-color: rgb(255, 51, 0);
+    /* background-color: #c83d3d; */
+    color:white;
+}
+.material-symbols-outlined{
+    vertical-align:text-bottom;
+}
+#wish{
+    margin: 15px 0px;
+    font-size: 1.18rem;
+}
+i{
+   cursor: pointer; 
+}
+.orange{
+    color:#F03637;
+}
+.share{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));   
+    font-size: 1.18rem;
+    margin: 15px 0px;
+}
+.box{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    padding:15px;
+    border: 2px solid gray;
+    /* grid-template-columns: repeat(auto-fill,minmax(270px,1fr));    */
+}
+
+
+.imgRes{
+    max-width: 520px;
+    height: 520px;
+}
+.smimgs{
+    display: flex;
+    flex-wrap: wrap;
+}
+.smlogo{
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+}
+.logoBox{
+    padding:5px;
+}
+.logoBox:hover{
+    border:2px solid blue;
+    padding: 3px;
+    cursor: pointer;
+}
+
+
+
+
+@media screen and (max-width:1430px) and (min-width:1030px) {
+    .first{
+        width: 100%;
+    }
+    .second{
+        width: 100%;
+    }
+}
+@media screen and (max-width:1045px) {
+    .first{
+        width: 100vw;
+    }
+    .second{
+        width: 100%;
+        margin: 0px 20px;
+    }
+    .details{
+        display:block;
+        margin: 0px;
+    }
+    .imgRes{
+        width: 100%;
+    }
+}
